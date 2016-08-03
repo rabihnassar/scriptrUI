@@ -1,0 +1,17 @@
+//SUBSCRIBE THIS SCRIPT TO scriptrUIpublish channel
+var log = require("log")
+log.setLevel("debug")
+var clientLib = require("./backend/client")
+
+var client = new clientLib.Client()
+
+var msg = client.getMessage()
+
+client.setApp(msg.appId)
+client.setChannel("scriptrUIsubscribe");
+
+if(msg.appId) {
+  	var c = require("scriptrUI/" + msg.appId + "/controller.js")
+    c.process(client, msg)
+}
+		

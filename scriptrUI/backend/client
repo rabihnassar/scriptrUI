@@ -1,0 +1,27 @@
+var messaging = require("pubsub")
+var log = require("log");
+log.setLevel("INFO");
+function Client() {
+  var appId;
+  var channel;
+  
+  this.getMessage = function() {return JSON.parse(request.rawBody)}
+  this.getRawMessage = function() {return request.rawBody}
+  
+  this.setApp = function(id) {
+    appId = id
+  }
+  
+  this.setChannel = function(name) {
+     channel = name;
+  }
+  
+  this.send = function(widgetId, payload) {
+	messaging.publish(channel, 
+                      JSON.stringify({
+      					"widgetId":widgetId, 
+      					"appId": appId, 
+      					"payload":payload}));
+  }
+}
+			

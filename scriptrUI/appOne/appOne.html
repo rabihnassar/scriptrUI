@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en" ng-app="appOne">
+  <head>
+    <meta charset="utf-8">
+    <title>My HTML File</title>
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    
+    
+    <!-- Latest compiled and minified CSS userd for scriptr display box widget -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.css">
+    
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+ 	<script src="//cdn.rawgit.com/gdi2290/angular-websocket/v1.0.9/angular-websocket.min.js"></script>
+    
+    <!-- Importing any angularsjs widget library -->
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-aria.min.js"></script>
+  	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-messages.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.js"></script>
+    
+    <script src="/scriptrUI/channelManager.js"></script>
+    <script src="/scriptrUI/config.js"></script>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-sanitize.min.js"></script>
+    <script src="/scriptrUI/lib/widgets/gauge.js"></script>
+    <script src="/scriptrUI/lib/widgets/displayBox.js"></script>
+    
+   <!-- <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"></link>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-material-icons/0.7.1/angular-material-icons.min.js"></script>
+   -->
+    <body>  
+       <div ng-controller="ScriptrRLTController"> 
+         <md-switch  ng-model="data.switch.value" aria-label="Finished" ng-change="updateServer()">
+         </md-switch>
+         
+         <ng-dial-gauge id="gauge1"
+                        scale-min="25"
+                        scale-max="75"
+                        border-width="1"
+                        ng-model="data.slider.value"
+                        bar-color="pink"
+                        bar-width="6"
+                        units="%"
+                        angle="135"
+                        rotate="180"
+                        line-cap="round"
+                        style="stroke:blue;font-weight:100;">
+         </ng-dial-gauge>
+         
+         <md-slider flex min="0" max="100" ng-model="data.slider.value" ng-change="updateServer()" aria-label="red">
+      	 </md-slider>
+         
+         
+         <!-- Messages from the backend -->
+         <ng-display-box ng-model="data.display.value" type="warning"></ng-display-box>
+         
+         <md-button class="md-raised" ng-click="update">Button</md-button>
+         
+         <!--<md-icon md-font-library="material-icons">face</md-icon> -->
+        
+       </div>
+   </body>
+</html>
