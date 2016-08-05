@@ -1,6 +1,5 @@
 var messaging = require("pubsub")
-var log = require("log");
-log.setLevel("INFO");
+
 function Client() {
   var appId;
   var channel;
